@@ -1,4 +1,4 @@
-package com.example.demoJPA.entities;
+package com.example.demoJPA.DAL.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -6,8 +6,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.security.Timestamp;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -23,6 +23,8 @@ public class Intervention {
     private LocalDate dateIntervention;
     @Column
     private LocalDate duree;
-    @Column
-    private Mecanicien mecanicien;
+    @OneToMany(mappedBy = "intervention")
+    private List<Mecanicien> mecanicien;
+    @OneToMany(mappedBy = "intervention")
+    private List<Avion> avions;
 }

@@ -1,4 +1,4 @@
-package com.example.demoJPA.entities;
+package com.example.demoJPA.DAL.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,19 +7,22 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
-@Table(name="type")
+@Table(name="propriotaire")
 @Getter
 @Setter
 @EntityListeners(value={AuditingEntityListener.class})
-public class Type {
-
+public class Proprietaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column
-    private String nomConstructeur;
+    private String nom;
     @Column
-    private long puissance;
+    private String adresse;
     @Column
-    private int nbPlace;
+    private String numeroTel;
+    @Column
+    private String categorie;
+
 }
